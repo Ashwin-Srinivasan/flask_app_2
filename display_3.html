@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+</style>
+</head>
+<body>
+
+<div>
+<img src = "{{ url_for('static', filename = 'modern_family_3.jpeg') }}" id = "image" width="500" height="500">
+</div>
+
+<div>
+<button type="button" onclick="slide(-1)">Previous</button>
+<button type="button" onclick="slide(1)">Next</button>
+</div>
+<br>
+
+<script>
+var imgs = ['modern_family_3.jpeg', 'modern_family_4.png', '1ebf3f7e-e08c-4cda-9cc7-30b49480ffd6.png', '4b530ed1-e43b-497a-beb8-47bbb2fe188f.png', '5b649319-a480-47e0-9ac0-e2634bab6779.png', '5ec39b92-f85f-4862-9668-68c6470756ce.png', '488e79b3-9ebf-443e-bd0c-417fb230897f.png', '553a0394-d58d-49a0-893d-63492338db3f.png', '06181eed-2df5-4aa8-b635-2ab9374d49c1.png', '3776409a-b464-4c8c-a954-4704578b6c36.png', '49974383-e09c-46f4-9f98-bcc4d7e5259c.png', 'c57dc316-bc7a-4530-8876-c67020455771.png'];
+
+var image_count = 1;
+
+function slide(x){
+  var image = document.getElementById('image');
+  image_count += x;
+  if (image_count > imgs.length){
+    image_count = imgs.length;
+  }
+  if (image_count < 1){
+    image_count = 1;
+  }
+  image.src = imgs[image_count - 1];
+
+}
+//send the images here as python images. 
+//to display the images, first save them. Can I display images in HTML using binary data? Then I won't need to save. 
+//If I can display using binary data: Send image files from python to javascript, don't need the json output per se. 
+
+//pass the list of static files to display_3
+</script>
+
+</body>
+</html> 

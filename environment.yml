@@ -1,0 +1,5 @@
+name: flask_app
+channels:
+  - defaults
+prefix: /anaconda3/envs/flask_app
+
